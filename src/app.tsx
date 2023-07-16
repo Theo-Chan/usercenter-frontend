@@ -7,6 +7,7 @@ import type { RunTimeLayoutConfig } from 'umi';
 import { history, Link } from 'umi';
 import defaultSettings from '../config/defaultSettings';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
+import {RequestConfig} from "@@/plugin-request/request";
 
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
@@ -15,7 +16,14 @@ const loginPath = '/user/login';
 export const initialStateConfig = {
   loading: <PageLoading />,
 };
+/**
+ * 添加全局请求地址配置
+ */
 
+export const request: RequestConfig = {
+  //todo 没有设置超时时间
+  timeout:10000
+}
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */
